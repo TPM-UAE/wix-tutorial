@@ -1,0 +1,387 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Upload Articles on WIX – Tutorial</title>
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      background: #f5f5f5;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 20px;
+      min-height: 100vh;
+    }
+
+    h1 {
+      font-size: 18px;
+      font-weight: 600;
+      color: #222;
+      margin-bottom: 14px;
+      text-align: center;
+    }
+
+    /* ── Chapter nav bar above the video ── */
+    #chapter-nav {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+      justify-content: center;
+      max-width: 780px;
+      width: 100%;
+      margin-bottom: 10px;
+    }
+
+    .ch-btn {
+      display: flex;
+      align-items: center;
+      gap: 5px;
+      padding: 5px 11px;
+      border: 1.5px solid #c8c8c8;
+      border-radius: 20px;
+      background: #fff;
+      cursor: pointer;
+      font-size: 12px;
+      color: #444;
+      transition: background 0.15s, border-color 0.15s, color 0.15s;
+      white-space: nowrap;
+    }
+
+    .ch-btn .num {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 18px;
+      height: 18px;
+      border-radius: 50%;
+      background: #e0e0e0;
+      font-size: 10px;
+      font-weight: 700;
+      color: #555;
+      flex-shrink: 0;
+      transition: background 0.15s, color 0.15s;
+    }
+
+    .ch-btn .ts {
+      color: #888;
+      font-size: 10px;
+    }
+
+    .ch-btn:hover {
+      background: #f0f4ff;
+      border-color: #7b9cf4;
+      color: #3a5cc5;
+    }
+
+    .ch-btn.active {
+      background: #3a5cc5;
+      border-color: #3a5cc5;
+      color: #fff;
+    }
+
+    .ch-btn.active .num {
+      background: rgba(255,255,255,0.25);
+      color: #fff;
+    }
+
+    .ch-btn.active .ts {
+      color: rgba(255,255,255,0.75);
+    }
+
+    /* ── Video wrapper ── */
+    #video-wrap {
+      position: relative;
+      width: 100%;
+      max-width: 780px;
+      background: #000;
+      border-radius: 8px;
+      overflow: hidden;
+      box-shadow: 0 4px 18px rgba(0,0,0,0.18);
+    }
+
+    video {
+      width: 100%;
+      display: block;
+    }
+
+    /* ── Overlay menu (shown at start, before first play) ── */
+    #overlay {
+      position: absolute;
+      inset: 0;
+      background: rgba(10,10,20,0.78);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 12px;
+      padding: 24px;
+      transition: opacity 0.3s;
+    }
+
+    #overlay.hidden {
+      opacity: 0;
+      pointer-events: none;
+    }
+
+    #overlay h2 {
+      color: #fff;
+      font-size: 16px;
+      font-weight: 600;
+      letter-spacing: 0.3px;
+      margin-bottom: 4px;
+    }
+
+    #overlay .subtitle {
+      color: rgba(255,255,255,0.55);
+      font-size: 12px;
+      margin-top: -8px;
+      margin-bottom: 4px;
+    }
+
+    .ov-list {
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+      width: 100%;
+      max-width: 420px;
+    }
+
+    .ov-item {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      padding: 9px 14px;
+      background: rgba(255,255,255,0.1);
+      border: 1px solid rgba(255,255,255,0.15);
+      border-radius: 8px;
+      cursor: pointer;
+      transition: background 0.15s;
+    }
+
+    .ov-item:hover {
+      background: rgba(255,255,255,0.2);
+    }
+
+    .ov-item .ov-num {
+      width: 22px;
+      height: 22px;
+      border-radius: 50%;
+      background: rgba(255,255,255,0.2);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 11px;
+      font-weight: 700;
+      color: #fff;
+      flex-shrink: 0;
+    }
+
+    .ov-item .ov-label {
+      flex: 1;
+      color: #fff;
+      font-size: 13px;
+    }
+
+    .ov-item .ov-ts {
+      color: rgba(255,255,255,0.5);
+      font-size: 11px;
+    }
+
+    .play-all-btn {
+      margin-top: 6px;
+      padding: 10px 28px;
+      background: #3a5cc5;
+      color: #fff;
+      border: none;
+      border-radius: 24px;
+      font-size: 14px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: background 0.15s;
+    }
+
+    .play-all-btn:hover {
+      background: #2d4aaa;
+    }
+
+    /* ── Chapter progress ticks on timeline ── */
+    #tick-bar {
+      display: flex;
+      align-items: center;
+      width: 100%;
+      max-width: 780px;
+      height: 6px;
+      background: #ddd;
+      border-radius: 3px;
+      margin-top: 6px;
+      position: relative;
+      cursor: pointer;
+    }
+
+    #tick-progress {
+      height: 100%;
+      background: #3a5cc5;
+      border-radius: 3px;
+      pointer-events: none;
+      transition: width 0.1s linear;
+    }
+
+    .tick-mark {
+      position: absolute;
+      top: -3px;
+      width: 3px;
+      height: 12px;
+      background: #888;
+      border-radius: 2px;
+      transform: translateX(-50%);
+      cursor: pointer;
+    }
+
+    .tick-mark:hover { background: #3a5cc5; }
+
+    .tick-tooltip {
+      position: absolute;
+      bottom: 16px;
+      left: 50%;
+      transform: translateX(-50%);
+      background: rgba(0,0,0,0.75);
+      color: #fff;
+      font-size: 10px;
+      padding: 3px 7px;
+      border-radius: 4px;
+      white-space: nowrap;
+      display: none;
+      pointer-events: none;
+    }
+
+    .tick-mark:hover .tick-tooltip { display: block; }
+  </style>
+</head>
+<body>
+
+  <h1>Upload Articles on WIX – Tutorial</h1>
+
+  <!-- Chapter nav above video -->
+  <div id="chapter-nav"></div>
+
+  <!-- Video + overlay -->
+  <div id="video-wrap">
+    <video id="vid" preload="metadata">
+      <!-- Replace VIDEO_URL_HERE with your YouTube or hosted video URL -->
+      <source src="VIDEO_URL_HERE" type="video/mp4" />
+      Your browser does not support the video tag.
+    </video>
+
+    <!-- Start-screen overlay with chapter menu -->
+    <div id="overlay">
+      <h2>Upload Articles on WIX</h2>
+      <p class="subtitle">Click a chapter to jump directly, or play from the beginning.</p>
+      <div class="ov-list" id="ov-list"></div>
+      <button class="play-all-btn" onclick="playFrom(0)">▶ Play from Beginning</button>
+    </div>
+  </div>
+
+  <!-- Chapter tick marks on a mini timeline -->
+  <div id="tick-bar">
+    <div id="tick-progress"></div>
+  </div>
+
+  <script>
+    const CHAPTERS = [
+      { label: "Log in to WIX",                      time: 0   },
+      { label: "Insights & Manage Posts",             time: 8   },
+      { label: "Duplicate a Published Post",          time: 28  },
+      { label: "Format Article with Claude AI",       time: 38  },
+      { label: "Copy & Paste to WIX",                time: 82  },
+      { label: "Upload Images",                       time: 174 },
+      { label: "SEO Settings",                        time: 208 },
+    ];
+
+    const DURATION = 275.4; // seconds
+
+    const vid     = document.getElementById("vid");
+    const overlay = document.getElementById("overlay");
+    const navEl   = document.getElementById("chapter-nav");
+    const ovList  = document.getElementById("ov-list");
+    const tickBar = document.getElementById("tick-bar");
+    const tickProg= document.getElementById("tick-progress");
+
+    function fmt(sec) {
+      const m = Math.floor(sec / 60);
+      const s = Math.floor(sec % 60);
+      return m + ":" + String(s).padStart(2, "0");
+    }
+
+    function playFrom(t) {
+      overlay.classList.add("hidden");
+      vid.currentTime = t;
+      vid.play();
+    }
+
+    // Build top nav buttons
+    CHAPTERS.forEach((ch, i) => {
+      const btn = document.createElement("button");
+      btn.className = "ch-btn";
+      btn.dataset.index = i;
+      btn.innerHTML = `<span class="num">${i + 1}</span>${ch.label}<span class="ts">${fmt(ch.time)}</span>`;
+      btn.addEventListener("click", () => playFrom(ch.time));
+      navEl.appendChild(btn);
+    });
+
+    // Build overlay chapter list
+    CHAPTERS.forEach((ch, i) => {
+      const item = document.createElement("div");
+      item.className = "ov-item";
+      item.innerHTML = `<span class="ov-num">${i + 1}</span><span class="ov-label">${ch.label}</span><span class="ov-ts">${fmt(ch.time)}</span>`;
+      item.addEventListener("click", () => playFrom(ch.time));
+      ovList.appendChild(item);
+    });
+
+    // Build tick marks
+    CHAPTERS.forEach((ch, i) => {
+      const pct = (ch.time / DURATION) * 100;
+      const tick = document.createElement("div");
+      tick.className = "tick-mark";
+      tick.style.left = pct + "%";
+      tick.innerHTML = `<span class="tick-tooltip">${i + 1}. ${ch.label}</span>`;
+      tick.addEventListener("click", () => playFrom(ch.time));
+      tickBar.appendChild(tick);
+    });
+
+    // Click on tick bar to seek
+    tickBar.addEventListener("click", (e) => {
+      const rect = tickBar.getBoundingClientRect();
+      const pct  = (e.clientX - rect.left) / rect.width;
+      playFrom(pct * DURATION);
+    });
+
+    // Update progress bar & active chapter button
+    vid.addEventListener("timeupdate", () => {
+      const pct = (vid.currentTime / DURATION) * 100;
+      tickProg.style.width = pct + "%";
+
+      let active = 0;
+      for (let i = 0; i < CHAPTERS.length; i++) {
+        if (vid.currentTime >= CHAPTERS[i].time) active = i;
+      }
+      document.querySelectorAll(".ch-btn").forEach((b, i) => {
+        b.classList.toggle("active", i === active);
+      });
+    });
+
+    // Show overlay again when video ends
+    vid.addEventListener("ended", () => {
+      overlay.classList.remove("hidden");
+    });
+
+    // Hide overlay when user presses native play
+    vid.addEventListener("play", () => {
+      overlay.classList.add("hidden");
+    });
+  </script>
+</body>
+</html>
