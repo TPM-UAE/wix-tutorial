@@ -1,0 +1,317 @@
+1
+00:00:00,000 --> 00:00:00,930
+Let's log in Wix.
+
+2
+00:00:01,575 --> 00:00:03,675
+go to "edit".
+
+3
+00:00:05,590 --> 00:00:06,399
+" Insights"
+
+4
+00:00:08,770 --> 00:00:14,699
+and now these are the posts we have
+published so far. When you see this,
+
+5
+00:00:14,759 --> 00:00:17,849
+click, and you'll see "manage posts.
+
+6
+00:00:17,904 --> 00:00:21,934
+" You'll go to the back stage of
+it.. These are the published one.
+
+7
+00:00:22,534 --> 00:00:28,294
+You can see the published dates, views,
+comments, likes, and also the categories
+
+8
+00:00:28,394 --> 00:00:30,994
+I set... duplicate any of it (the post).
+
+9
+00:00:31,064 --> 00:00:35,309
+It will automatically go to this
+"copy of blah, blah, blah, blah,
+
+10
+00:00:35,309 --> 00:00:37,129
+blah. "This happens automatically..
+
+11
+00:00:38,969 --> 00:00:40,379
+Go to Claude.
+
+12
+00:00:40,379 --> 00:00:45,569
+Upload the Playbook and your
+article and paste this prompt.
+
+13
+00:00:45,669 --> 00:00:47,499
+I have shared this prompt with you.
+
+14
+00:00:48,489 --> 00:00:53,019
+This prompt is about Let Claude
+know the playbook, which is
+
+15
+00:00:53,019 --> 00:00:56,389
+the guidance of your blog.
+
+16
+00:00:57,139 --> 00:01:01,339
+So let Claude read the
+guidance and your article.
+
+17
+00:01:01,399 --> 00:01:02,869
+The second one is your article.
+
+18
+00:01:03,709 --> 00:01:08,599
+And then it will create a HTML file.
+
+19
+00:01:09,239 --> 00:01:12,329
+You can just click it and see the result.
+
+20
+00:01:13,859 --> 00:01:22,089
+See it is not perfectly as we want, but
+the layout is very similar as we had.
+
+21
+00:01:22,109 --> 00:01:22,139
+Okay.
+
+22
+00:01:22,630 --> 00:01:23,219
+go back to Wix.
+
+23
+00:01:23,269 --> 00:01:25,639
+This is the copy of what we just made.
+
+24
+00:01:26,099 --> 00:01:27,149
+Do the copy and paste.
+
+25
+00:01:28,039 --> 00:01:28,529
+That's it.
+
+26
+00:01:29,939 --> 00:01:33,049
+However, it is tricky
+while you copy and paste.
+
+27
+00:01:33,869 --> 00:01:40,254
+Please make sure the format like, this,
+the font from Claude is not correct.
+
+28
+00:01:41,194 --> 00:01:46,594
+so just copy, comment C, and paste.
+
+29
+00:01:47,404 --> 00:01:50,129
+And the second one, paste it.
+
+30
+00:01:52,819 --> 00:01:54,619
+It doesn't follow our rule.
+
+31
+00:01:54,649 --> 00:01:58,610
+It doesn't create any
+of this, gray paragraph.
+
+32
+00:01:58,640 --> 00:01:59,210
+It's okay.
+
+33
+00:02:00,110 --> 00:02:01,220
+Make it flexible.
+
+34
+00:02:02,150 --> 00:02:06,500
+Just copy this with the
+green quotes one to here.
+
+35
+00:02:08,450 --> 00:02:14,270
+See the font changed, so you have to
+be careful when you pasting it because
+
+36
+00:02:14,270 --> 00:02:17,015
+sometime the format may not goes right.
+
+37
+00:02:17,405 --> 00:02:22,644
+So see this, 18 font size.
+
+38
+00:02:22,704 --> 00:02:28,045
+Just make it into 18 manually.
+
+39
+00:02:31,015 --> 00:02:34,684
+Posting needs to be very careful,
+but don't too stress 'cause.
+
+40
+00:02:36,634 --> 00:02:38,824
+The layout already is here.
+
+41
+00:02:38,924 --> 00:02:45,985
+After we copy paste all the text , we
+have to ask Claude to generate
+
+42
+00:02:46,305 --> 00:02:52,774
+these images into JPG for us by
+giving a snapshot and showing the
+
+43
+00:02:52,854 --> 00:02:53,884
+reference to them (Claude or GPT).
+
+44
+00:02:54,284 --> 00:02:56,944
+Okay, how to upload an image?
+
+45
+00:02:57,494 --> 00:03:01,974
+Go click the "+" button, image.
+
+46
+00:03:02,974 --> 00:03:04,174
+upload media.
+
+47
+00:03:05,284 --> 00:03:06,994
+and click the one we want.
+
+48
+00:03:07,204 --> 00:03:11,494
+For example, if this is the
+one we want, just add to page.
+
+49
+00:03:12,184 --> 00:03:12,634
+That's it.
+
+50
+00:03:12,814 --> 00:03:16,384
+And make it size to our original size.
+
+51
+00:03:16,924 --> 00:03:19,264
+It will make the resolution looks better.
+
+52
+00:03:21,124 --> 00:03:21,724
+If the mark goes wrong.
+
+53
+00:03:21,874 --> 00:03:24,574
+Go to alignment, left again.
+
+54
+00:03:25,384 --> 00:03:28,144
+This is just the system problem.
+
+55
+00:03:28,194 --> 00:03:30,314
+Let's say we finish all the content.
+
+56
+00:03:31,374 --> 00:03:32,064
+Go here.
+
+57
+00:03:32,424 --> 00:03:33,924
+AI tools, settings.
+
+58
+00:03:33,984 --> 00:03:36,294
+SEO are the most important.
+
+59
+00:03:36,564 --> 00:03:37,734
+Go to AI tools.
+
+60
+00:03:39,444 --> 00:03:41,484
+And meta text.
+
+61
+00:03:41,484 --> 00:03:43,054
+This will boost the SEO.
+
+62
+00:03:43,054 --> 00:03:44,314
+This is very important
+
+63
+00:03:46,834 --> 00:03:50,224
+and just create AI text.
+
+64
+00:03:50,274 --> 00:03:53,819
+A meta description you can create by ai.
+
+65
+00:03:54,669 --> 00:03:58,499
+You can use the AI here
+or chat GBT to help you.
+
+66
+00:03:58,599 --> 00:04:05,104
+This will appear on the feature
+and also these are very important.
+
+67
+00:04:05,104 --> 00:04:08,164
+Please ask AI to assist you.
+
+68
+00:04:09,004 --> 00:04:13,414
+This will help the searching
+engines to search this article.
+
+69
+00:04:14,269 --> 00:04:19,799
+if you realize one of your article,
+fits some trending keywords in
+
+70
+00:04:19,799 --> 00:04:22,719
+Abu Dhabi you need to modify them.
+
+71
+00:04:23,649 --> 00:04:25,509
+This expert excerpt.
+
+72
+00:04:25,539 --> 00:04:27,159
+This is also very important...
+
+73
+00:04:27,200 --> 00:04:30,200
+in Abu Dhabi, you need to modify them.
+
+74
+00:04:30,200 --> 00:04:34,640
+This expert excerpt, this is also very important.
+
